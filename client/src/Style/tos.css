@@ -1,0 +1,60 @@
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes pulse    { 0%,100%{opacity:0.09} 50%{opacity:0.2} }
+  @keyframes floatP0  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  @keyframes floatP1  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}  }
+  @keyframes floatP2  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  @keyframes lineGrow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+  .legal-fade    { animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+  .legal-fade-d1 { animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) both; }
+  .legal-fade-d2 { animation: fadeUp 0.6s 0.2s cubic-bezier(0.22,1,0.36,1) both; }
+
+  .legal-section-block {
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  }
+  .legal-section-block.in-view { opacity:1; transform:translateY(0); }
+  .legal-section-block:last-child { border-bottom:none; }
+
+  .toc-link {
+    display:flex; align-items:center; gap:10px;
+    padding:10px 14px;
+    font-family:'Jost',sans-serif; font-size:11px;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:rgba(255,255,255,0.3); text-decoration:none;
+    border-left:1.5px solid transparent;
+    transition:all 0.22s; background:none; border-top:none;
+    border-right:none; border-bottom:none; cursor:pointer; width:100%; text-align:left;
+  }
+  .toc-link:hover, .toc-link.active {
+    color:#c9a84c; border-left-color:#c9a84c;
+    background:rgba(201,168,76,0.05);
+  }
+  .toc-link .toc-num {
+    font-family:'Cormorant Garamond',serif;
+    font-size:13px; color:rgba(201,168,76,0.4); min-width:20px;
+  }
+  .toc-link.active .toc-num { color:#c9a84c; }
+
+  .back-link {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Jost',sans-serif; font-size:10px;
+    letter-spacing:0.35em; text-transform:uppercase;
+    color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.2s;
+  }
+  .back-link:hover { color:#c9a84c; }
+
+  @media (max-width:1024px) {
+    .legal-layout { grid-template-columns:1fr !important; }
+    .legal-toc    { display:none !important; }
+    .legal-body   { padding-left:0 !important; border-left:none !important; }
+  }
+  @media (max-width:600px) {
+    .legal-hero-title { font-size:clamp(44px,13vw,72px) !important; }
+    .legal-inner      { padding:0 18px !important; }
+  }

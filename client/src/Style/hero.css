@@ -1,0 +1,195 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        @keyframes float0 { 0%,100%{transform:translateY(0)}   50%{transform:translateY(-9px)} }
+        @keyframes float1 { 0%,100%{transform:translateY(0)}   50%{transform:translateY(-6px)} }
+        @keyframes float2 { 0%,100%{transform:translateY(0)}   50%{transform:translateY(-11px)} }
+        @keyframes float3 { 0%,100%{transform:translateY(0)}   50%{transform:translateY(-7px)} }
+
+        @keyframes spinRing {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+
+        @keyframes shimmerText {
+          0%  { background-position: -200% center; }
+          100%{ background-position:  200% center; }
+        }
+        @keyframes fadeSlideIn  { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeSlideOut { from{opacity:1;transform:translateY(0)}    to{opacity:0;transform:translateY(-14px)} }
+        @keyframes bottleIn  { from{opacity:0;transform:scale(0.93) translateY(16px)} to{opacity:1;transform:scale(1) translateY(0)} }
+        @keyframes bottleOut { from{opacity:1;transform:scale(1) translateY(0)}       to{opacity:0;transform:scale(0.93) translateY(-10px)} }
+        @keyframes pulse     { 0%,100%{opacity:0.15} 50%{opacity:0.3} }
+
+        .hero-text-enter   { animation: fadeSlideIn  0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .hero-text-exit    { animation: fadeSlideOut 0.3s ease forwards; }
+        .hero-bottle-enter { animation: bottleIn  0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .hero-bottle-exit  { animation: bottleOut 0.3s ease forwards; }
+
+        .hero-cta-primary {
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 14px 32px;
+          font-family: 'Jost', sans-serif;
+          font-size: 11px; font-weight: 600; letter-spacing: 0.32em;
+          text-transform: uppercase; color: #0a0806;
+          border: none; cursor: pointer;
+          clip-path: polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+          transition: opacity 0.2s, transform 0.2s;
+          position: relative; overflow: hidden;
+          white-space: nowrap;
+        }
+        .hero-cta-primary::before {
+          content: ''; position: absolute; inset: 0;
+          background: rgba(255,255,255,0.15);
+          transform: translateX(-100%);
+          transition: transform 0.35s ease;
+        }
+        .hero-cta-primary:hover::before { transform: translateX(100%); }
+        .hero-cta-primary:hover  { opacity: 0.9; transform: translateY(-2px); }
+        .hero-cta-primary:active { transform: translateY(0); }
+
+        .hero-cta-secondary {
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 14px 28px;
+          font-family: 'Jost', sans-serif;
+          font-size: 11px; font-weight: 300; letter-spacing: 0.28em;
+          text-transform: uppercase; color: rgba(255,255,255,0.55);
+          background: transparent; cursor: pointer;
+          clip-path: polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+          border: 1px solid rgba(255,255,255,0.12);
+          transition: all 0.25s;
+          white-space: nowrap;
+        }
+        .hero-cta-secondary:hover {
+          color: rgba(255,255,255,0.88);
+          border-color: rgba(255,255,255,0.28);
+          background: rgba(255,255,255,0.04);
+        }
+
+        .slide-ctrl-btn {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 44px; height: 44px;
+          background: rgba(0,0,0,0.55);
+          backdrop-filter: blur(12px);
+          border: none; cursor: pointer;
+          clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+          transition: all 0.25s;
+          flex-shrink: 0;
+        }
+        .slide-ctrl-btn:hover  { background: rgba(0,0,0,0.8); transform: translateY(-2px); }
+        .slide-ctrl-btn:active { transform: translateY(0) scale(0.96); }
+
+        /* ── RESPONSIVE ── */
+
+        /* Large desktop: side-by-side layout */
+        @media (min-width: 1025px) {
+          .hero-grid        { grid-template-columns: 1fr 1fr !important; }
+          .hero-bottle-col  { display: flex !important; }
+          .hero-text-col    { text-align: left; }
+          .hero-inner       { padding: 35px 48px 100px !important; }
+          .hero-cta-primary { width: max-content !important;}
+          .hero-cta-secondary { width: max-content !important;}
+          .hero-desc{ margin: 10px 0 10px 0 !important;}
+          .hero-price { margin-bottom: 15px !important;}
+        }
+
+        /* Tablet landscape (768–1024px): stack, show bottle above text */
+        @media (max-width: 1024px) {
+          .hero-grid {
+            align-items: center !important;
+            grid-template-columns: 1fr !important;
+            grid-template-rows: auto auto !important;
+          }
+          /* Reorder: bottle on top, text below */
+          .hero-bottle-col {
+            display: flex !important;
+            order: -1 !important;
+            min-height: 320px !important;
+            max-height: 380px !important;
+          }
+          .hero-bottle-col img,
+          .hero-bottle-col svg {
+            max-height: 300px !important;
+            max-width: 220px !important;
+          }
+          .hero-text-col    { text-align: center; order: 0 !important; }
+          .hero-stats       { justify-content: center !important; flex-wrap: wrap !important; gap: 20px 0 !important; }
+          .hero-ctas        { justify-content: center !important; }
+          .hero-badge       { justify-content: center !important; margin-bottom: 25px !important; }
+          .hero-divider     { justify-content: center !important; }
+          .hero-price       { justify-content: center !important; }
+          .hero-desc        { margin-left: auto !important; margin-right: auto !important; }
+          .hero-inner       { padding: 28px 36px 120px !important; }
+          .hero-name        { font-size: clamp(48px, 10vw, 90px) !important; }
+        }
+
+        /* Tablet portrait & large mobile (481–768px) */
+        @media (max-width: 768px) {
+          .hero-inner       { padding: 24px 24px 150px !important; }
+          .hero-name        { font-size: clamp(42px, 12vw, 72px) !important; }
+          .hero-sub         { justify-content: center !important; letter-spacing: 0.4em !important;  margin:0 !important; }
+          .hero-ctas        { flex-direction: column !important; align-items: center !important; gap: 10px !important; width: 100% !important; }
+          .hero-cta-primary,
+          .hero-cta-secondary { width: 100% !important; max-width: 300px !important; justify-content: center !important; }
+          .hero-bottle-col  {
+            min-height: 260px !important;
+            max-height: 300px !important;
+          }
+          .hero-bottle-col img,
+          .hero-bottle-col svg {
+            max-height: 240px !important;
+            max-width: 180px !important;
+          }
+          .slide-controls-wrap {
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) !important;
+            bottom: 20px !important;
+            width: max-content !important;
+          }
+          .hero-stat-item   { padding-right: 20px !important; margin-right: 20px !important; }
+          .hero-desc        { font-size: 15px !important; }
+        }
+
+        /* Small mobile (361–480px) */
+        @media (max-width: 480px) {
+          .hero-inner       { padding: 20px 16px 150px !important; }
+          .hero-name        { font-size: clamp(36px, 12vw, 58px) !important; }
+          .hero-desc        { font-size: 14px !important; }
+          .hero-price-num   { font-size: 28px !important; }
+          .hero-stat-num    { font-size: 22px !important; }
+          .slide-controls-wrap { gap: 6px !important; }
+          .slide-ctrl-btn   { width: 38px !important; height: 38px !important; }
+          .slide-counter    { padding: 6px 10px !important; min-width: 44px !important; }
+          .hero-bottle-col  {
+            min-height: 220px !important;
+            max-height: 260px !important;
+          }
+          .hero-bottle-col img,
+          .hero-bottle-col svg {
+            max-height: 210px !important;
+            max-width: 150px !important;
+          }
+          .hero-cta-primary,
+          .hero-cta-secondary { max-width: 100% !important; padding: 12px 20px !important; }
+        }
+
+        /* Very small (≤360px) */
+        @media (max-width: 360px) {
+          .hero-inner       { padding: 16px 12px 150px !important; }
+          .hero-name        { font-size: clamp(30px, 11vw, 48px) !important; }
+          .hero-bottle-col  {
+            min-height: 180px !important;
+            max-height: 220px !important;
+          }
+          .hero-bottle-col img,
+          .hero-bottle-col svg {
+            max-height: 180px !important;
+            max-width: 130px !important;
+          }
+          .hero-dots        { display: none !important; }
+          .hero-stats       { gap: 12px 0 !important; }
+          .hero-stat-item   { padding-right: 14px !important; margin-right: 14px !important; }
+        }
+      

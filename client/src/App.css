@@ -1,0 +1,27 @@
+/* select wrapper */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* select styling */
+.select-wrapper .inp {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 35px !important; /* 👈 force space */
+  cursor: pointer;
+  clip-path: none;
+}
+
+/* custom arrow */
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  right: 10px;   /* 👈 yahan se margin control karo */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  color: rgba(255,255,255,0.6);
+  pointer-events: none;
+}
