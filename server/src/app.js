@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin: "https://fragy.vercel.app/",
+  origin: "https://fragy.vercel.app",
   credentials: true,
 }));
 
