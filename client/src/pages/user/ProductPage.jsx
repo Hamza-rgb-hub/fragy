@@ -665,7 +665,7 @@ const ProductsPage = () => {
             </div>
 
             {/* Grid */}
-            <div style={{ flex:1 }}>
+            <div style={{ flex:1, '@media(maxWidth:599px)': { width: '100%' } }}>
 
               {/* Error */}
               {error && (
