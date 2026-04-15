@@ -53,7 +53,7 @@
           font-size: 13px;
           font-weight: 300;
           letter-spacing: 0.06em;
-          padding: 14px 0 10px;
+          padding: 14px 0 10px !important;
           outline: none;
           transition: border-color 0.3s, background 0.3s;
           box-sizing: border-box;

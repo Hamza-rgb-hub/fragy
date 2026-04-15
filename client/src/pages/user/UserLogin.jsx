@@ -76,7 +76,7 @@ const UserLogin = () => {
           pointerEvents: "none",
         }} />
 
-        <div className="relative z-10 w-full max-w-105 px-4">
+        <div className="relative z-10 w-full max-w-105" style={{padding:'0 20px'}}>
 
           {/* Brand header */}
           <div className="text-center mb-10 fade-in fade-in-1">
