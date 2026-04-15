@@ -665,7 +665,7 @@ const ProductsPage = () => {
             </div>
 
             {/* Grid */}
-            <div style={{ flex:1, minWidth:'100%' }}>
+            <div style={{ flex:1 }}>
 
               {/* Error */}
               {error && (
