@@ -128,7 +128,7 @@
         @media (max-width: 768px) {
           .hero-inner       { padding: 24px 24px 150px !important; }
           .hero-name        { font-size: clamp(42px, 12vw, 72px) !important; }
-          .hero-sub         { justify-content: center !important; letter-spacing: 0.4em !important;  margin:0 !important; }
+          .hero-sub1         { justify-content: center !important; letter-spacing: 0.4em !important;  margin:0 !important; }
           .hero-ctas        { flex-direction: column !important; align-items: center !important; gap: 10px !important; width: 100% !important; }
           .hero-cta-primary,
           .hero-cta-secondary { width: 100% !important; max-width: 300px !important; justify-content: center !important; }

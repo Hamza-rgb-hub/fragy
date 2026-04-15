@@ -666,7 +666,7 @@ export default function HeroSection() {
 
               {/* Sub */}
               <p
-                className="hero-sub"
+                className="hero-sub1"
                 style={{
                   fontSize: 10,
                   letterSpacing: "0.65em",
