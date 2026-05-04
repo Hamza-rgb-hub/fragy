@@ -1,4 +1,3 @@
-// src/admin/pages/AdminLogin.jsx
 import { useState } from "react";
 import { useAdminAuth } from "../AdminApp";
 import API from "../../../utils/api";
